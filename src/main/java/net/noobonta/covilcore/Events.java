@@ -1,7 +1,6 @@
 package net.noobonta.covilcore;
 
 import org.bukkit.*;
-import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
@@ -10,20 +9,12 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
-import org.bukkit.event.block.BlockFromToEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntitySpawnEvent;
-import org.bukkit.plugin.Plugin;
-import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerPortalEvent;
-import org.bukkit.event.player.PlayerRespawnEvent;
-import org.bukkit.potion.PotionEffect;
 import org.bukkit.util.EulerAngle;
-
-import java.util.UUID;
 
 public class Events implements Listener {
 
@@ -78,26 +69,4 @@ public class Events implements Listener {
         }
     }
 
-
-    @EventHandler
-    public void onEntityDamage(EntityDamageEvent e) {
-        if (e.getEntity() instanceof Player &&
-                e.getCause() == EntityDamageEvent.DamageCause.VOID) {
-            e.setCancelled(true);
-            Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "cmi spawn " + ((Player)e.getEntity()).getPlayer().getDisplayName() + " -s");
-        }
-    }
-
-
-    @EventHandler
-    public void onPlayerInteract(PlayerInteractEvent event) {
-        if (event.getAction() == Action.PHYSICAL) {
-            if (event.getClickedBlock() != null && event.getClickedBlock().getType() == Material.FARMLAND) {
-                World world = event.getPlayer().getWorld();
-                if (world.getName().equalsIgnoreCase("Vila")) {
-                    event.setCancelled(true);
-                }
-            }
-        }
-    }
 }
