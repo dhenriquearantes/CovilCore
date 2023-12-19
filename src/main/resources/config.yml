@@ -1,0 +1,20 @@
+
+experience-ores: true
+
+armor-stands: true
+
+#----------------
+#Jacobs Contest
+#----------------
+
+first-place:
+  command1: "ecoitems give %player% gold_medal"
+  command2: "ecoitems give %player% jacobs_ticket"
+second-place:
+  command1: "ecoitems give %player% silver_medal"
+  command2: "ecoitems give %player% jacobs_ticket"
+third-place:
+  command1: "ecoitems give %player% bronze_medal"
+  command2: "ecoitems give %player% jacobs_ticket"
+participation:
+  command1: "ecoitems give %player% jacobs_ticket"

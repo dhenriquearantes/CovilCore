@@ -1,0 +1,4 @@
+name: CovilCore
+version: '${project.version}'
+main: net.noobonta.covilcore.CovilCore
+api-version: '1.20'
