@@ -76,8 +76,14 @@ public class PlaceholderRegister extends PlaceholderExpansion {
                 return "0";
             }
         }
-        if (identifier.equals("position"))
-            return "" + JacobsContest.getPlayerPosition(player);
+        if (identifier.equals("position")) {
+            int position = JacobsContest.getPlayerPosition(player);
+            if (position == -1) {
+                return "0";
+            } else {
+                return String.valueOf(position);
+            }
+        }
 
         return "No Value";
     }
