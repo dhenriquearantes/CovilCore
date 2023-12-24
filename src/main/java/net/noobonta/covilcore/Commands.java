@@ -12,6 +12,7 @@ import dev.jorel.commandapi.executors.CommandArguments;
 import dev.jorel.commandapi.executors.ExecutorType;
 import net.noobonta.covilcore.Utils;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.SoundCategory;
 import org.bukkit.command.CommandSender;
@@ -54,7 +55,95 @@ public class Commands {
                 })
                 .register();
 
-
+        new CommandAPICommand("fairysoulexchange")
+                .withArguments(
+                        new TextArgument("option").replaceSuggestions(ArgumentSuggestions.strings("0", "1", "2", "3", "4"))
+                )
+                .withOptionalArguments(
+                        new PlayerArgument("player")
+                )
+                .withPermission(CommandPermission.OP)
+                .executes((sender, args) -> {
+                    String option = (String)args.get(0);
+                    Player otherPlayer = (Player) args.get("player");
+                    if (option.equals("0")) {
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "levels addexp " + otherPlayer.getDisplayName() + " 1");
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "ecobits takesilent " + otherPlayer.getDisplayName() + " souls 5 ");
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "ecoskills give " + otherPlayer.getDisplayName() + " health 3");
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "ecoskills give " + otherPlayer.getDisplayName() + " defense 1");
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "ecoskills give " + otherPlayer.getDisplayName() + " strength 1");
+                        otherPlayer.sendMessage("");
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aTroca realizada com sucesso! Você recebeu:"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &b+1 Covil EXP"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &c+3 ❤ Vida"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &a+1 ❈ Defesa"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &c+1 ❁ Força"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &a+0 ✦ Velocidade"));
+                        otherPlayer.sendMessage("");
+                    }
+                    if (option.equals("1")) {
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "levels addexp " + otherPlayer.getDisplayName() + " 1");
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "ecobits takesilent " + otherPlayer.getDisplayName() + " souls 5 ");
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "ecoskills give " + otherPlayer.getDisplayName() + " health 4");
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "ecoskills give " + otherPlayer.getDisplayName() + " defense 1");
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "ecoskills give " + otherPlayer.getDisplayName() + " strength 1");
+                        otherPlayer.sendMessage("");
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aTroca realizada com sucesso! Você recebeu:"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &b+1 Covil EXP"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &c+4 ❤ Vida"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &a+1 ❈ Defesa"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &c+1 ❁ Força"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &a+0 ✦ Velocidade"));
+                        otherPlayer.sendMessage("");
+                    }
+                    if (option.equals("2")) {
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "levels addexp " + otherPlayer.getDisplayName() + " 1");
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "ecobits takesilent " + otherPlayer.getDisplayName() + " souls 5 ");
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "ecoskills give " + otherPlayer.getDisplayName() + " health 5");
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "ecoskills give " + otherPlayer.getDisplayName() + " defense 2");
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "ecoskills give " + otherPlayer.getDisplayName() + " strength 2");
+                        otherPlayer.sendMessage("");
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aTroca realizada com sucesso! Você recebeu:"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &b+1 Covil EXP"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &c+5 ❤ Vida"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &a+2 ❈ Defesa"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &c+2 ❁ Força"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &a+0 ✦ Velocidade"));
+                        otherPlayer.sendMessage("");
+                    }
+                    if (option.equals("3")) {
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "levels addexp " + otherPlayer.getDisplayName() + " 3");
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "ecobits takesilent " + otherPlayer.getDisplayName() + " souls 5 ");
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "ecoskills give " + otherPlayer.getDisplayName() + " health 6");
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "ecoskills give " + otherPlayer.getDisplayName() + " defense 1");
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "ecoskills give " + otherPlayer.getDisplayName() + " strength 1");
+                        otherPlayer.sendMessage("");
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aTroca realizada com sucesso! Você recebeu:"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &b+3 Covil EXP"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &c+6 ❤ Vida"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &a+2 ❈ Defesa"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &c+2 ❁ Força"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &a+0 ✦ Velocidade"));
+                        otherPlayer.sendMessage("");
+                    }
+                    if (option.equals("4")) {
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "levels addexp " + otherPlayer.getDisplayName() + " 3");
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "ecobits takesilent " + otherPlayer.getDisplayName() + " souls 5 ");
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "ecoskills give " + otherPlayer.getDisplayName() + " health 7");
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "ecoskills give " + otherPlayer.getDisplayName() + " defense 2");
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "ecoskills give " + otherPlayer.getDisplayName() + " strength 2");
+                        Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "ecoskills give " + otherPlayer.getDisplayName() + " speed 2");
+                        otherPlayer.sendMessage("");
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aTroca realizada com sucesso! Você recebeu:"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &b+2 Covil EXP"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &c+5 ❤ Vida"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &a+2 ❈ Defesa"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &c+2 ❁ Força"));
+                        otherPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', " &a+2 ✦ Velocidade"));
+                        otherPlayer.sendMessage("");
+                    }
+                })
+                .register();
         new CommandAPICommand("questCompletionSpawnT1Zombie")
                 .executes((sender, args) -> {
                     if (sender instanceof Player)
