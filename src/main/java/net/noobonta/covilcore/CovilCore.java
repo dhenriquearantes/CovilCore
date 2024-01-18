@@ -31,9 +31,11 @@ public final class CovilCore extends JavaPlugin {
         plugin = this;
         this.fileGeneration = new FileGeneration(this);
         this.fileGeneration.onEnable();
+        SummoningRitualListener listener = new SummoningRitualListener();
         JacobsContest jacobsContest = new JacobsContest();
         Events events = new Events();
         PluginManager pluginManager = getServer().getPluginManager();
+        pluginManager.registerEvents(listener, this);
         pluginManager.registerEvents(events, this);
         pluginManager.registerEvents(jacobsContest, this);
         CommandAPI.onEnable();

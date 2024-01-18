@@ -43,7 +43,26 @@ public class Utils {
                 return material.name();
         }
     }
-
+    public static void takeItem(Player player, int amount, ItemStack item) {
+        PlayerInventory inventory = player.getInventory();
+        int remainingAmount = amount;
+        for (int slot = 0; slot < inventory.getSize(); slot++) {
+            ItemStack currentItem = inventory.getItem(slot);
+            if (currentItem != null && currentItem.isSimilar(item)) {
+                int currentAmount = currentItem.getAmount();
+                if (currentAmount <= remainingAmount) {
+                    remainingAmount -= currentAmount;
+                    inventory.setItem(slot, null);
+                } else {
+                    currentItem.setAmount(currentAmount - remainingAmount);
+                    inventory.setItem(slot, currentItem);
+                    remainingAmount = 0;
+                    break;
+                }
+            }
+        }
+        if (remainingAmount > 0);
+    }
     public static Player getRandomOnlinePlayer() {
         Collection<? extends Player> onlinePlayers = Bukkit.getServer().getOnlinePlayers();
         if (onlinePlayers.isEmpty())
